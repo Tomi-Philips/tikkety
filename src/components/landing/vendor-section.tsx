@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Camera, Music, Palette, Utensils, Sparkles } from "lucide-react";
+import { Camera, Music, Palette, Utensils, Sparkles, Star, Users, Clock, Award, CheckCircle, ArrowRight, Zap, Shield, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CATEGORIES = [
-  { id: "music", label: "DJs & Music", icon: Music },
-  { id: "photo", label: "Photography", icon: Camera },
-  { id: "decor", label: "Decor & Lighting", icon: Palette },
-  { id: "catering", label: "Catering", icon: Utensils },
+  { id: "music", label: "DJs & Music", icon: Music, color: "from-blue-500 to-blue-500" },
+  { id: "photo", label: "Photography", icon: Camera, color: "from-blue-500 to-cyan-500" },
+  { id: "decor", label: "Decor & Lighting", icon: Palette, color: "from-emerald-500 to-teal-500" },
+  { id: "catering", label: "Catering", icon: Utensils, color: "from-amber-500 to-orange-500" },
 ];
 
 const VENDORS: Record<
@@ -22,47 +22,57 @@ const VENDORS: Record<
     specialty: string;
     description: string;
     tags: string[];
+    location: string;
+    experience: string;
   }
 > = {
   music: {
     name: "DJ Pulse Collective",
     rating: 4.9,
     reviews: 42,
-    price: "$150/hr",
+    price: "₦150,000/hr",
     specialty: "Afrobeats • Hip-Hop • House Sets",
     description:
       "Professional DJ network for high-energy events. Fully equipped sound systems, live mixing, and event-ready setups.",
     tags: ["Sound Ready", "Event Tested", "High Energy"],
+    location: "Lagos, Nigeria",
+    experience: "8+ years",
   },
   photo: {
     name: "Aura Media Studio",
     rating: 4.8,
     reviews: 29,
-    price: "$200/hr",
+    price: "₦200,000/hr",
     specialty: "Event Photography & Cinematic Coverage",
     description:
       "Capture your event moments with professional-grade photography and fast turnaround highlight reels.",
     tags: ["4K Capture", "Fast Delivery", "Pro Editing"],
+    location: "Lagos, Nigeria",
+    experience: "6+ years",
   },
   decor: {
     name: "Luxe Event Designs",
     rating: 5.0,
     reviews: 18,
-    price: "$500+",
+    price: "₦500,000+",
     specialty: "Stage & Ambient Design",
     description:
       "Transform event spaces with premium lighting, stage design, and immersive decorations tailored to your theme.",
     tags: ["Custom Themes", "Lighting FX", "Stage Design"],
+    location: "Lagos, Nigeria",
+    experience: "10+ years",
   },
   catering: {
     name: "Savory Table Co.",
     rating: 4.7,
     reviews: 35,
-    price: "$25/plate",
+    price: "₦25,000/plate",
     specialty: "Full Event Catering Services",
     description:
       "Premium catering solutions for private and public events with flexible menu options and professional service staff.",
     tags: ["Full Service", "Custom Menu", "On-site Staff"],
+    location: "Lagos, Nigeria",
+    experience: "12+ years",
   },
 };
 
@@ -71,33 +81,69 @@ export default function VendorSection() {
   const current = VENDORS[activeCat];
 
   return (
-    <section className="relative py-24 bg-zinc-50 border-y border-zinc-100 overflow-hidden">
-      {/* background glow */}
-      <div className="absolute bottom-[-10%] left-[-15%] w-[450px] h-[450px] rounded-full bg-blue-100/30 blur-[130px]" />
+    <section className="relative py-28 bg-gradient-to-b from-slate-50 via-white to-blue-50/40 overflow-hidden">
+      
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[20%] right-[5%] w-[400px] h-[400px] rounded-full bg-gradient-to-br from-blue-200/20 to-blue-200/20 blur-[140px] animate-pulse" />
+        <div className="absolute bottom-[20%] left-[5%] w-[350px] h-[350px] rounded-full bg-gradient-to-tr from-blue-200/15 to-indigo-200/15 blur-[140px] animate-pulse delay-1000" />
+        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-indigo-200/5 blur-[150px]" />
+        
+        {/* Subtle grid pattern */}
+        <div className={`absolute inset-0 bg-[url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.02)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")] opacity-50`} />
+      </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-        {/* LEFT SIDE */}
+        {/* LEFT SIDE - Enhanced */}
         <div className="lg:col-span-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-extrabold uppercase tracking-widest shadow-md shadow-blue-500/25 mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-300 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-600 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg shadow-blue-500/30 mb-6"
+          >
+            <div className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-300 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+            </div>
+            <Zap className="w-3.5 h-3.5" />
+            Profiles Live • Booking Coming Soon
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900 leading-[1.1]"
+          >
+            Build Your Vendor
+            <span className="block bg-gradient-to-r from-blue-600 via-blue-600 to-rose-600 bg-clip-text text-transparent">
+              Profile & Presence
             </span>
-            Coming Soon
-          </div>
+          </motion.h2>
 
-          <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 mt-3">
-            Built for the Full Event Ecosystem
-          </h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-zinc-500 text-base md:text-lg font-medium mt-4 leading-relaxed"
+          >
+            Establish your professional digital presence on Tikkety today. Create an account, build your public profile, 
+            showcase your services, and share your unique profile link with potential clients.
+          </motion.p>
 
-          <p className="text-zinc-500 mt-4 text-base md:text-lg leading-relaxed">
-            While Tikkety starts with powerful event creation and ticketing,
-            we are expanding into a verified ecosystem of event professionals —
-            connecting organizers with trusted service providers when they need them.
-          </p>
-
-          <div className="grid grid-cols-2 gap-3 mt-8">
+          {/* Category Grid - Enhanced */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="grid grid-cols-2 gap-3 mt-8"
+          >
             {CATEGORIES.map((cat) => {
               const Icon = cat.icon;
               const active = activeCat === cat.id;
@@ -106,81 +152,147 @@ export default function VendorSection() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCat(cat.id)}
-                  className={`flex items-center gap-3 p-4 rounded-2xl border text-left transition-all ${
+                  className={`group relative flex items-center gap-3 p-4 rounded-2xl border-2 transition-all duration-200 ${
                     active
-                      ? "bg-white border-blue-600 text-blue-700 shadow"
-                      : "bg-white/60 border-zinc-200 text-zinc-600 hover:bg-white"
+                      ? `bg-gradient-to-r ${cat.color} border-transparent text-white shadow-lg`
+                      : "bg-white/80 backdrop-blur-sm border-zinc-200/80 text-zinc-600 hover:border-zinc-300 hover:shadow-md"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span className="text-sm font-semibold">{cat.label}</span>
+                  <div className={`p-1.5 rounded-lg transition-all ${
+                    active ? "bg-white/20" : "bg-zinc-100 group-hover:bg-zinc-200"
+                  }`}>
+                    <Icon className={`w-4 h-4 ${active ? "text-white" : "text-zinc-600"}`} />
+                  </div>
+                  <span className={`text-sm font-semibold ${active ? "text-white" : "text-zinc-700"}`}>
+                    {cat.label}
+                  </span>
+                  {active && (
+                    <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-md">
+                      <CheckCircle className="w-3.5 h-3.5 text-blue-600" />
+                    </div>
+                  )}
                 </button>
               );
             })}
-          </div>
+          </motion.div>
 
-          {/* MVP CONTEXT NOTE (IMPORTANT STRATEGIC LINE) */}
-          <p className="mt-6 text-xs text-zinc-400 leading-relaxed">
-            *Vendor marketplace is a planned expansion. Core MVP focuses on event creation, ticketing, and attendee management.*
-          </p>
+          {/* MVP Context Note - Enhanced */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-6 flex items-start gap-2 p-3 rounded-xl bg-amber-50/80 border border-amber-200/50"
+          >
+            <Sparkles className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+            <p className="text-xs text-amber-700 leading-relaxed">
+              <span className="font-bold">Note:</span> Vendor profiles are live for online presence and sharing. 
+              Direct booking and search marketplace integrations are coming soon.
+            </p>
+          </motion.div>
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE - Enhanced Vendor Card */}
         <div className="lg:col-span-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeCat}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              className="bg-white border border-zinc-200 rounded-3xl p-6 shadow-xl"
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -30, scale: 0.95 }}
+              transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
+              className="bg-white/90 backdrop-blur-sm border border-zinc-200/60 rounded-3xl p-6 shadow-2xl shadow-zinc-200/50 relative overflow-hidden"
             >
+              {/* Decorative gradient top */}
+              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${CATEGORIES.find(c => c.id === activeCat)?.color || 'from-blue-500 to-blue-500'}`} />
+              
+              {/* Header */}
               <div className="flex items-start justify-between">
                 <div>
-                  <span className="inline-flex items-center gap-1.5 text-xs bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full font-bold border border-blue-100">
-                    <Sparkles className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
-                    Preview Listing
+                  <span className="inline-flex items-center gap-1.5 text-xs bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 px-3 py-1 rounded-full font-bold border border-indigo-200/50">
+                    <Sparkles className="w-3.5 h-3.5 text-indigo-500 animate-pulse" />
+                    Featured Listing
                   </span>
-                  <h3 className="text-xl font-bold mt-3 text-zinc-900">
+                  <h3 className="text-2xl font-bold mt-3 text-zinc-900">
                     {current.name}
                   </h3>
+                  <div className="flex items-center gap-3 mt-1.5">
+                    <div className="flex items-center gap-1">
+                      <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
+                      <span className="text-sm font-bold text-zinc-800">{current.rating}</span>
+                      <span className="text-xs text-zinc-400">({current.reviews} reviews)</span>
+                    </div>
+                    <span className="w-1 h-1 rounded-full bg-zinc-300" />
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-zinc-400" />
+                      <span className="text-xs text-zinc-500">{current.experience}</span>
+                    </div>
+                  </div>
                 </div>
-
-                <div className="text-sm font-bold text-zinc-700">
-                  ⭐ {current.rating} ({current.reviews})
+                <div className="text-right">
+                  <p className="text-xs text-zinc-400 font-medium">Starting From</p>
+                  <p className="text-lg font-black bg-gradient-to-r from-zinc-800 to-zinc-600 bg-clip-text text-transparent">
+                    {current.price}
+                  </p>
                 </div>
               </div>
 
-              <p className="text-sm text-zinc-500 mt-4 leading-relaxed">
+              {/* Specialty */}
+              <div className="mt-3 flex items-center gap-2">
+                <Award className="w-3.5 h-3.5 text-blue-500" />
+                <span className="text-sm font-medium text-blue-700">{current.specialty}</span>
+              </div>
+
+              {/* Description */}
+              <p className="text-sm text-zinc-500 mt-3 leading-relaxed">
                 {current.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mt-5">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mt-4">
                 {current.tags.map((t, i) => (
                   <span
                     key={i}
-                    className="text-[10px] bg-zinc-100 px-2 py-1 rounded-lg font-semibold text-zinc-600"
+                    className="text-[10px] bg-gradient-to-r from-zinc-100 to-zinc-50 px-3 py-1.5 rounded-full font-semibold text-zinc-600 border border-zinc-200/50 flex items-center gap-1"
                   >
+                    <CheckCircle className="w-2.5 h-2.5 text-emerald-500" />
                     {t}
                   </span>
                 ))}
               </div>
 
-              <div className="flex justify-between items-center mt-6 pt-5 border-t">
-                <div>
-                  <p className="text-xs text-zinc-400 font-semibold">Starting From</p>
-                  <p className="text-lg font-bold text-zinc-900">
-                    {current.price}
-                  </p>
-                </div>
+              {/* Location */}
+              <div className="mt-3 flex items-center gap-1.5 text-xs text-zinc-500">
+                <Building2 className="w-3.5 h-3.5 text-zinc-400" />
+                <span>{current.location}</span>
+              </div>
 
+              {/* Actions */}
+              <div className="flex gap-3 mt-5 pt-4 border-t border-zinc-100">
                 <Link
                   href="/waitlist"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-zinc-900 text-white text-xs font-bold hover:bg-zinc-800 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-600 text-white text-sm font-bold shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:from-blue-700 hover:to-blue-700 transition-all duration-200 group"
                 >
-                  Join Waitlist
-                  <Sparkles className="w-3.5 h-3.5 text-blue-300" />
+                  <span>Join Waitlist</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
+                <button className="px-4 py-2.5 rounded-xl border-2 border-zinc-200 text-zinc-600 hover:bg-zinc-50 hover:border-zinc-300 transition-all duration-200 flex items-center gap-1.5 text-sm font-semibold">
+                  <Shield className="w-4 h-4" />
+                  View Profile
+                </button>
+              </div>
+
+              {/* Trust indicator */}
+              <div className="mt-4 flex items-center justify-center gap-3 text-[10px] text-zinc-400">
+                <span className="flex items-center gap-1">
+                  <CheckCircle className="w-3 h-3 text-emerald-500" />
+                  Verified
+                </span>
+                <span className="w-px h-3 bg-zinc-200" />
+                <span className="flex items-center gap-1">
+                  <Users className="w-3 h-3 text-blue-500" />
+                  {Math.floor(Math.random() * 50) + 10}+ bookings
+                </span>
               </div>
             </motion.div>
           </AnimatePresence>

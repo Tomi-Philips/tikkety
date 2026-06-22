@@ -34,3 +34,26 @@ body {
     transform: translateX(100%);
   }
 }
+
+/* Diagonal sliding stripes for announcement banner */
+@keyframes slide-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 56px 0;
+  }
+}
+
+.striped-banner {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #1e1b4b 0px,       /* indigo-950 */
+    #1e1b4b 14px,
+    #312e81 14px,       /* indigo-900 */
+    #312e81 28px
+  );
+  background-size: 39.6px 39.6px; /* 28px * sqrt(2) approx */
+  animation: slide-stripes 15s linear infinite;
+}
+

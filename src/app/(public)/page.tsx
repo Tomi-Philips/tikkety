@@ -1,4 +1,5 @@
 import Navbar from "@/components/layout/navbar";
+import AnnouncementBanner from "@/components/landing/announcement-banner";
 
 import HeroSection from "@/components/landing/hero-section";
 import ProblemSection from "@/components/landing/problem-section";
@@ -15,7 +16,8 @@ import Footer from "@/components/layout/footer";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-blue-200">
+    <main className="min-h-screen bg-blue-50">
+      <AnnouncementBanner />
       <Navbar />
 
       <HeroSection />
