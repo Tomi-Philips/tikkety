@@ -24,6 +24,7 @@ const VENDORS: Record<
     tags: string[];
     location: string;
     experience: string;
+    bookings: number;
   }
 > = {
   music: {
@@ -37,6 +38,7 @@ const VENDORS: Record<
     tags: ["Sound Ready", "Event Tested", "High Energy"],
     location: "Lagos, Nigeria",
     experience: "8+ years",
+    bookings: 58,
   },
   photo: {
     name: "Aura Media Studio",
@@ -49,6 +51,7 @@ const VENDORS: Record<
     tags: ["4K Capture", "Fast Delivery", "Pro Editing"],
     location: "Lagos, Nigeria",
     experience: "6+ years",
+    bookings: 42,
   },
   decor: {
     name: "Luxe Event Designs",
@@ -61,6 +64,7 @@ const VENDORS: Record<
     tags: ["Custom Themes", "Lighting FX", "Stage Design"],
     location: "Lagos, Nigeria",
     experience: "10+ years",
+    bookings: 24,
   },
   catering: {
     name: "Savory Table Co.",
@@ -73,6 +77,7 @@ const VENDORS: Record<
     tags: ["Full Service", "Custom Menu", "On-site Staff"],
     location: "Lagos, Nigeria",
     experience: "12+ years",
+    bookings: 85,
   },
 };
 
@@ -291,7 +296,7 @@ export default function VendorSection() {
                 <span className="w-px h-3 bg-zinc-200" />
                 <span className="flex items-center gap-1">
                   <Users className="w-3 h-3 text-blue-500" />
-                  {Math.floor(Math.random() * 50) + 10}+ bookings
+                  {current.bookings}+ bookings
                 </span>
               </div>
             </motion.div>

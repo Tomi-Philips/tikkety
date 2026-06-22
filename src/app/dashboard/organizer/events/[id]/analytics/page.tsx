@@ -47,48 +47,53 @@
       try {
         setLoading(true);
 
-        // 1. Event + ticket types
-        const { data: eventData } = await supabase
-          .from("events")
-          .select(`
-            *,
-            ticket_types (*)
-          `)
-          .eq("id", eventId)
-          .single();
+        // Step 1: fetch event + flat tickets in parallel (tickets has event_id)
+        const [{ data: eventData }, { data: rawTickets }] = await Promise.all([
+          supabase
+            .from("events")
+            .select("*, ticket_types (*)")
+            .eq("id", eventId)
+            .single(),
+
+          supabase
+            .from("tickets")
+            .select("id, status, event_id, ticket_type_id, admissions_used, purchased_at, user_id, order_id")
+            .eq("event_id", eventId),
+        ]);
+
+        const tickets = rawTickets || [];
+
+        // Step 2: extract unique order IDs and user IDs from tickets
+        const orderIds = [...new Set(tickets.map((t: any) => t.order_id).filter(Boolean))];
+        const userIds = [...new Set(tickets.map((t: any) => t.user_id).filter(Boolean))];
+
+        // Step 3: fetch orders and profiles scoped to what we actually need
+        const [{ data: ordersData }, { data: profilesData }] = await Promise.all([
+          orderIds.length > 0
+            ? supabase.from("orders").select("id, payment_status, created_at").in("id", orderIds)
+            : Promise.resolve({ data: [] }),
+          userIds.length > 0
+            ? supabase.from("profiles").select("id, full_name, avatar_url").in("id", userIds)
+            : Promise.resolve({ data: [] }),
+        ]);
+
+        // Build lookup Maps for O(1) joins in JS
+        const ordersMap = new Map((ordersData || []).map((o: any) => [o.id, o]));
+        const profilesMap = new Map((profilesData || []).map((p: any) => [p.id, p]));
+        const ticketTypesMap = new Map(
+          (eventData?.ticket_types || []).map((tt: any) => [tt.id, tt])
+        );
+
+        // Merge into the shape the rest of the page expects
+        const ticketsData = tickets.map((t: any) => ({
+          ...t,
+          ticket_types: ticketTypesMap.get(t.ticket_type_id) || null,
+          orders: ordersMap.get(t.order_id) || null,
+          profiles: profilesMap.get(t.user_id) || null,
+        }));
 
         setEvent(eventData);
-
-        // 2. Tickets + profiles + orders (for full analytics)
-        const { data: ticketsData } = await supabase
-          .from("tickets")
-          .select(`
-            id,
-            status,
-            event_id,
-            ticket_type_id,
-            admissions_used,
-            purchased_at,
-            user_id,
-            ticket_types (
-              id,
-              name,
-              price
-            ),
-            profiles (
-              id,
-              full_name,
-              avatar_url
-            ),
-            orders (
-              id,
-              payment_status,
-              created_at
-            )
-          `)
-          .eq("event_id", eventId);
-
-        setTickets(ticketsData || []);
+        setTickets(ticketsData);
       } catch (err) {
         console.error("Analytics load error:", err);
       } finally {
