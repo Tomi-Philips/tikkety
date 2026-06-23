@@ -89,7 +89,7 @@ export default function DashboardShell({ children, user, profile }: DashboardShe
   const navLinks = getNavLinks();
 
   // Get dynamic quick links based on user role
-  const getQuickLinks = () => {
+  const getQuickLinks = (): { name: string; href: string; icon: any; disabled?: boolean }[] => {
     switch (role) {
       case "admin":
         return [
@@ -109,22 +109,14 @@ export default function DashboardShell({ children, user, profile }: DashboardShe
             icon: Plus,
           },
           {
-            name: "Attendees",
-            href: "#",
-            icon: User,
-            disabled: true,
+            name: "Events",
+            href: "/dashboard/organizer/events",
+            icon: Calendar,
           },
           {
-            name: "QR Check-In",
-            href: "#",
-            icon: Ticket,
-            disabled: true,
-          },
-          {
-            name: "Payouts",
-            href: "#",
-            icon: CreditCard,
-            disabled: true,
+            name: "Settings",
+            href: "/dashboard/organizer/settings",
+            icon: Settings,
           },
         ];
       case "user":

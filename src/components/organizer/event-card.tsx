@@ -1,6 +1,6 @@
 // event-card.tsx
 import Link from "next/link";
-import { Calendar, MapPin, Clock, Eye, TrendingUp, Users, Sparkles, ChevronRight, Ticket, DollarSign, Shield, Award, Pencil } from "lucide-react";
+import { Calendar, MapPin, Clock, Eye, TrendingUp, Users, Sparkles, ChevronRight, Ticket, DollarSign, Shield, Award, Pencil, UserCheck, QrCode } from "lucide-react";
 
 type EventCardProps = {
   event: any;
@@ -240,6 +240,24 @@ export default function EventCard({ event }: EventCardProps) {
           >
             <DollarSign className="w-3.5 h-3.5 group-hover/sales:translate-y-[-1px] transition-transform" />
             <span>Sales</span>
+          </Link>
+
+          {/* Attendees Button */}
+          <Link
+            href={`/dashboard/organizer/events/${event.id}/attendees`}
+            className="group/attendees flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-sky-600 hover:from-blue-600 hover:to-sky-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
+          >
+            <UserCheck className="w-3.5 h-3.5 group-hover/attendees:translate-y-[-1px] transition-transform" />
+            <span>Attendees</span>
+          </Link>
+
+          {/* Check-In Button */}
+          <Link
+            href={`/dashboard/organizer/events/${event.id}/check-in`}
+            className="group/checkin flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
+          >
+            <QrCode className="w-3.5 h-3.5 group-hover/checkin:scale-110 transition-transform" />
+            <span>Check-In</span>
           </Link>
 
           {/* Analytics Button */}

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import TicketTypesManager from "./tickets/page";
 import EventActions from "@/components/organizer/event-actions";
@@ -21,7 +22,11 @@ import {
   Tag,
   Info,
   TrendingUp,
-  Shield
+  Shield,
+  ScanLine,
+  BarChart3,
+  UserCheck,
+  ChevronRight
 } from "lucide-react";
 
 export default async function EventOrganizerPage({
@@ -405,6 +410,75 @@ export default async function EventOrganizerPage({
                   </span>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Event Console Card */}
+          <div className="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sm rounded-2xl border border-zinc-200/60 dark:border-zinc-800/60 p-5 shadow-lg">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+                <Sparkles className="w-3.5 h-3.5 text-white" />
+              </div>
+              <h3 className="text-xs font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider">
+                Event Console
+              </h3>
+            </div>
+
+            <div className="space-y-2">
+              <Link
+                href={`/dashboard/organizer/events/${event.id}/sales`}
+                className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-all duration-150"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center">
+                    <DollarSign className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">Sales Dashboard</span>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-emerald-500 group-hover:translate-x-0.5 transition-all" />
+              </Link>
+
+              <Link
+                href={`/dashboard/organizer/events/${event.id}/analytics`}
+                className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950/20 transition-all duration-150"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-indigo-100 dark:bg-indigo-950/40 flex items-center justify-center">
+                    <BarChart3 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors">Event Analytics</span>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-indigo-500 group-hover:translate-x-0.5 transition-all" />
+              </Link>
+
+              <Link
+                href={`/dashboard/organizer/events/${event.id}/attendees`}
+                className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-950/20 transition-all duration-150"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950/40 flex items-center justify-center">
+                    <Users className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">Attendee Roster</span>
+                </div>
+                <ChevronRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-all" />
+              </Link>
+
+              <Link
+                href={`/dashboard/organizer/events/${event.id}/check-in`}
+                className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-violet-50 dark:hover:bg-violet-950/20 transition-all duration-150"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-violet-100 dark:bg-violet-950/40 flex items-center justify-center">
+                    <ScanLine className="w-3.5 h-3.5 text-violet-600 dark:text-violet-400" />
+                  </div>
+                  <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-violet-700 dark:group-hover:text-violet-400 transition-colors">QR Gate Check-In</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 uppercase tracking-wide">Live</span>
+                  <ChevronRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-violet-500 group-hover:translate-x-0.5 transition-all" />
+                </div>
+              </Link>
             </div>
           </div>
         </div>
