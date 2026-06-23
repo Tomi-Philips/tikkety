@@ -2,6 +2,7 @@
 
 import { BarChart3, LineChart, Users, TrendingUp, Eye, Zap, Clock, Activity, ArrowUp, ArrowDown, DollarSign, Ticket, Percent, Calendar, Brain } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const STATS = [
   {
@@ -56,7 +57,7 @@ export default function AnalyticsPreviewSection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-        {/* LEFT: Dashboard Visualization - Enhanced */}
+        {/* LEFT: Dashboard Visualization - Enhanced with Real Screenshot */}
         <div className="lg:col-span-7">
           <motion.div
             initial={{ opacity: 0, y: 30, rotate: -1 }}
@@ -64,137 +65,22 @@ export default function AnalyticsPreviewSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
             whileHover={{ y: -4 }}
-            className="bg-gradient-to-br from-zinc-900/90 to-zinc-950/90 backdrop-blur-sm border border-zinc-800/60 rounded-3xl p-6 shadow-2xl shadow-black/50 relative overflow-hidden"
+            className="bg-gradient-to-br from-zinc-900/90 to-zinc-950/90 backdrop-blur-sm border border-zinc-800/60 rounded-3xl p-3 shadow-2xl shadow-black/50 relative overflow-hidden group"
           >
             {/* Decorative gradient glow */}
             <div className="absolute -top-[30%] -right-[30%] w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
             <div className="absolute -bottom-[30%] -left-[30%] w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
 
-            {/* Header */}
-            <div className="flex justify-between items-center pb-5 border-b border-zinc-800/60 mb-6 relative">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg shadow-blue-500/30">
-                  <Activity className="w-4 h-4 text-white" />
-                </div>
-                <span className="text-sm font-extrabold tracking-wider text-zinc-200">
-                  LIVE EVENT PERFORMANCE
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="flex items-center gap-1.5 text-[10px] bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-400/20 font-bold">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  REAL-TIME
-                </span>
-              </div>
-            </div>
-
-            {/* Stats Grid - Enhanced */}
-            <div className="grid grid-cols-3 gap-4 relative">
-              {STATS.map((stat, idx) => {
-                const Icon = stat.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className="relative bg-zinc-950/80 border border-zinc-800/60 rounded-2xl p-4 hover:border-zinc-700 transition-all duration-300 group"
-                  >
-                    <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${stat.color} rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity`} />
-                    <div className={`inline-flex p-1.5 rounded-lg bg-gradient-to-br ${stat.color}/20 mb-3`}>
-                      <Icon className={`w-4 h-4 bg-gradient-to-br ${stat.color} bg-clip-text text-transparent`} />
-                    </div>
-
-                    <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider">
-                      {stat.title}
-                    </p>
-
-                    <p className="text-xl font-black mt-1 text-white">
-                      {stat.value}
-                    </p>
-
-                    <p className="text-[10px] text-emerald-400 mt-1 flex items-center gap-0.5">
-                      <ArrowUp className="w-3 h-3" />
-                      {stat.sub}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* MVP Insight Block - Enhanced */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="mt-6 bg-gradient-to-br from-blue-950/30 to-indigo-950/30 border border-blue-800/30 rounded-2xl p-5 relative overflow-hidden"
-            >
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/10 rounded-full blur-2xl" />
-              <div className="flex items-start gap-3 relative">
-                <div className="p-2 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg shadow-blue-500/30 shrink-0">
-                  <Brain className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <p className="text-xs text-blue-400 font-bold uppercase tracking-wider">
-                    What This Means
-                  </p>
-                  <p className="text-sm text-zinc-300 mt-1.5 leading-relaxed">
-                    Every ticket sold is tracked in real-time from creation → payment → entry validation.
-                    Organizers don't guess performance — they see it instantly.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Simplified Chart - Enhanced */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-              className="mt-6"
-            >
-              <div className="flex justify-between items-center mb-3">
-                <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider flex items-center gap-1.5">
-                  <Clock className="w-3 h-3" />
-                  Weekly Sales Trend
-                </span>
-                <span className="text-[9px] text-emerald-400 font-semibold flex items-center gap-0.5">
-                  <ArrowUp className="w-3 h-3" />
-                  +12.5% this week
-                </span>
-              </div>
-              <div className="flex items-end gap-2 h-28 bg-zinc-950/50 rounded-xl p-4 border border-zinc-800/30">
-                {CHART_DATA.map((item, i) => (
-                  <div key={i} className="flex-1 flex flex-col items-center gap-2 group">
-                    <motion.div
-                      initial={{ height: 0 }}
-                      whileInView={{ height: `${item.value}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: i * 0.05 }}
-                      className="w-full bg-gradient-to-t from-blue-600 to-indigo-500 rounded-md relative hover:from-blue-500 hover:to-indigo-400 transition-all cursor-pointer"
-                      style={{ height: `${item.value}%`, minHeight: '8px' }}
-                    >
-                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-zinc-800 text-white text-[8px] font-bold px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                        {item.value}
-                      </div>
-                    </motion.div>
-                    <span className="text-[8px] text-zinc-500 font-medium">{item.day}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Bottom status */}
-            <div className="mt-4 flex justify-between items-center pt-3 border-t border-zinc-800/60">
-              <span className="text-[8px] text-zinc-600 font-mono">ANALYTICS_ENGINE_v1.0</span>
-              <span className="flex items-center gap-1.5 text-[8px] text-emerald-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                live feed active
-              </span>
+            {/* Inner border wrapper for image */}
+            <div className="relative z-10 rounded-2xl overflow-hidden border border-zinc-800/80 bg-zinc-950/40">
+              <Image
+                src="/Analytics Screenshot.png"
+                alt="Tikkety Analytics Dashboard"
+                width={1200}
+                height={800}
+                className="w-full h-auto object-cover transform group-hover:scale-[1.01] transition-transform duration-500"
+                priority
+              />
             </div>
           </motion.div>
         </div>
