@@ -45,7 +45,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-20 bg-white border-t border-gray-100">
+    <section id="faq" className="py-20 bg-gradient-to-br from-[#dbeafe] to-blue-50 border-t border-gray-100">
       <div className="w-full max-w-3xl mx-auto px-6">
         
         {/* Section Header */}
@@ -57,7 +57,7 @@ export default function FAQSection() {
 
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 leading-[1.15] mb-3">
             Everything You Need
-            <span className="block text-blue-700 mt-1">
+            <span className="block text-blue-800 mt-1">
               to Know Before Launch
             </span>
           </h2>
@@ -79,7 +79,7 @@ export default function FAQSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className={`bg-white border rounded-lg overflow-hidden transition-colors ${
+                className={`bg-blue-50 border rounded-lg overflow-hidden transition-colors ${
                   isOpen 
                     ? "border-blue-400" 
                     : "border-gray-200 hover:border-blue-300"

@@ -50,8 +50,8 @@ body {
     -45deg,
     #ffffff 0px,       /* white */
     #ffffff 14px,
-    #f1f5f9 14px,      /* slate-100 */
-    #f1f5f9 28px
+    #EFF6FF 14px,      /* slate-100 */
+    #EFF6FF 28px
   );
   background-size: 39.6px 39.6px;
   animation: slide-stripes 15s linear infinite;

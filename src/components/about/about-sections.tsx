@@ -21,23 +21,16 @@ import {
 // ── HERO SECTION ──
 export function AboutHero() {
   return (
-    <section className="relative pt-36 pb-20 overflow-hidden bg-gradient-to-b from-indigo-50/50 via-white to-slate-50">
-      {/* Background decorations */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-indigo-200/30 blur-[130px] animate-pulse" />
-        <div className="absolute bottom-[5%] right-[-5%] w-[450px] h-[450px] rounded-full bg-blue-200/20 blur-[120px] animate-pulse delay-1000" />
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-40" />
-      </div>
-
+    <section className="relative pt-36 pb-20 overflow-hidden bg-white">
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Animated Badge */}
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200/50 text-indigo-700 font-extrabold uppercase tracking-widest text-[11px] mb-6 shadow-sm"
+          transition={{ duration: 0.3 }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-medium tracking-wider uppercase mb-6"
         >
-          <Sparkles className="w-3.5 h-3.5 text-indigo-600 animate-spin-slow" />
+          <Sparkles className="w-3.5 h-3.5" />
           Who We Are
         </motion.div>
 
@@ -45,11 +38,11 @@ export function AboutHero() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-zinc-900 leading-[1.1]"
+          transition={{ duration: 0.4, delay: 0.05 }}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 leading-[1.1]"
         >
           Connecting the Entire{" "}
-          <span className="block sm:inline bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <span className="block sm:inline text-blue-700">
             Event Ecosystem
           </span>
         </motion.h1>
@@ -58,8 +51,8 @@ export function AboutHero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 text-base sm:text-lg md:text-xl text-zinc-500 font-medium leading-relaxed max-w-3xl mx-auto"
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="mt-5 text-base sm:text-lg md:text-xl text-gray-500 leading-relaxed max-w-3xl mx-auto"
         >
           Tikkety is redefining how experiences are discovered, tickets are sold,
           and events are serviced in Africa. We are building the first unified platform 
@@ -71,8 +64,8 @@ export function AboutHero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
         >
           {[
             { label: "Anti-Scalp", value: "100%", desc: "Secure cryptographed QR tickets" },
@@ -82,15 +75,15 @@ export function AboutHero() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="bg-white/70 backdrop-blur-sm border border-zinc-200/50 rounded-2xl p-5 text-center shadow-md shadow-zinc-100/50 hover:border-indigo-200/50 hover:shadow-indigo-50/50 transition-all duration-300 group"
+              className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-blue-300 transition-colors"
             >
-              <div className="text-2xl font-extrabold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+              <div className="text-2xl font-bold text-blue-700">
                 {item.value}
               </div>
-              <div className="text-xs font-bold text-zinc-800 mt-1 uppercase tracking-wider">
+              <div className="text-xs font-semibold text-gray-800 mt-1 uppercase tracking-wide">
                 {item.label}
               </div>
-              <div className="text-[11px] text-zinc-400 mt-0.5 leading-tight font-medium">
+              <div className="text-[10px] text-gray-400 mt-0.5 leading-tight">
                 {item.desc}
               </div>
             </div>
@@ -104,27 +97,24 @@ export function AboutHero() {
 // ── MISSION & VISION SECTION ──
 export function MissionVision() {
   return (
-    <section className="py-20 bg-slate-50/50 border-y border-zinc-100/80 relative overflow-hidden">
-      {/* Light side glow */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-indigo-100/30 blur-[100px] pointer-events-none" />
-
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+    <section className="py-20 bg-gray-50 border-y border-gray-100">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {/* Mission Card */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="group bg-white border border-zinc-200/60 rounded-[2.5rem] p-8 md:p-10 shadow-xl shadow-zinc-100/50 hover:border-indigo-200/50 hover:shadow-2xl hover:shadow-indigo-50/30 transition-all duration-300"
+            transition={{ duration: 0.4 }}
+            className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 hover:border-blue-300 transition-colors"
           >
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 mb-6 group-hover:scale-110 transition-transform duration-300">
-              <Target className="w-7 h-7" />
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 mb-5">
+              <Target className="w-6 h-6" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Our Mission
             </h2>
-            <p className="mt-4 text-zinc-500 text-sm md:text-base font-medium leading-relaxed">
+            <p className="mt-4 text-gray-500 text-sm md:text-base leading-relaxed">
               To empower event organizers, delight attendees, and uplift service vendors by providing a secure, 
               scalable, and high-fidelity ecosystem. We are eliminating the administrative overhead, booking friction, 
               and ticketing fraud that hold back African creative entrepreneurship and cultural community building.
@@ -133,19 +123,19 @@ export function MissionVision() {
 
           {/* Vision Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="group bg-white border border-zinc-200/60 rounded-[2.5rem] p-8 md:p-10 shadow-xl shadow-zinc-100/50 hover:border-blue-200/50 hover:shadow-2xl hover:shadow-blue-50/30 transition-all duration-300"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 hover:border-blue-300 transition-colors"
           >
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
-              <Eye className="w-7 h-7" />
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 mb-5">
+              <Eye className="w-6 h-6" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Our Vision
             </h2>
-            <p className="mt-4 text-zinc-500 text-sm md:text-base font-medium leading-relaxed">
+            <p className="mt-4 text-gray-500 text-sm md:text-base leading-relaxed">
               To be the default infrastructure for live experiences across Africa. We envision a continent where event planning is 
               completely fluid, tickets are strictly fraudless, local talent and micro-vendors gain continuous employment, 
               and every attendee enjoys absolute ease of entry to the moments that connect them.
@@ -161,25 +151,21 @@ export function MissionVision() {
 const VALUES = [
   {
     icon: Shield,
-    color: "text-indigo-600 bg-indigo-50/80 border-indigo-100",
     title: "Security & Trust First",
     desc: "We stand against scalpers. By designing dynamic QR codes and secure check-ins, we build an environment of absolute trust.",
   },
   {
     icon: Layers,
-    color: "text-purple-600 bg-purple-50/80 border-purple-100",
     title: "Ecosystem Integrity",
     desc: "We don't just sell tickets. We connect event planners directly to local vendors (DJs, sound engineers, MCs) to foster full ecosystem growth.",
   },
   {
     icon: Zap,
-    color: "text-amber-600 bg-amber-50/80 border-amber-100",
     title: "Radical Simplicity",
     desc: "High technology shouldn't feel complex. Tikkety is built with visual elegance, smooth workflows, and lightning-fast operations.",
   },
   {
     icon: Users,
-    color: "text-emerald-600 bg-emerald-50/80 border-emerald-100",
     title: "Community Growth",
     desc: "We believe in shared value. Our Ambassador network and vendor portfolios ensure event budgets directly enrich local creators.",
   },
@@ -187,46 +173,41 @@ const VALUES = [
 
 export function CoreValues() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-purple-50 blur-[110px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-indigo-600 font-extrabold uppercase tracking-wider text-xs">
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <span className="text-blue-600 font-semibold uppercase tracking-wider text-xs">
             What Drives Us
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 mt-3 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">
             Our Core Values
           </h2>
-          <p className="text-zinc-500 mt-4 text-base font-medium leading-relaxed">
+          <p className="text-gray-500 mt-3 text-base leading-relaxed">
             These guiding principles shape how we build, interact, and envision the future of ticketing.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {VALUES.map((val, idx) => {
             const Icon = val.icon;
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="bg-white border border-zinc-200/60 rounded-3xl p-7 hover:shadow-xl hover:border-indigo-200/50 hover:-translate-y-0.5 transition-all duration-300 group relative overflow-hidden"
+                transition={{ duration: 0.4, delay: idx * 0.06 }}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 transition-colors"
               >
-                {/* Subtle gradient hover card highlight */}
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/0 to-indigo-50/20 group-hover:from-indigo-50/20 group-hover:to-indigo-50/40 transition-all duration-500 pointer-events-none" />
-                
-                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl border ${val.color} mb-5 group-hover:scale-105 transition-transform`}>
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 text-blue-600 mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-zinc-900 tracking-tight group-hover:text-indigo-700 transition-colors">
+                <h3 className="text-base font-semibold text-gray-900">
                   {val.title}
                 </h3>
-                <p className="text-zinc-500 text-sm font-medium mt-3 leading-relaxed">
+                <p className="text-sm text-gray-500 mt-2 leading-relaxed">
                   {val.desc}
                 </p>
               </motion.div>
@@ -242,7 +223,6 @@ export function CoreValues() {
 const GROUPS = [
   {
     icon: Users,
-    gradient: "from-indigo-500 to-indigo-700 shadow-indigo-500/20",
     title: "Event Organizers",
     subtitle: "Absolute control, zero stress.",
     perks: [
@@ -254,7 +234,6 @@ const GROUPS = [
   },
   {
     icon: Ticket,
-    gradient: "from-blue-500 to-blue-700 shadow-blue-500/20",
     title: "Event Attendees",
     subtitle: "Safe, fraudless access to experiences.",
     perks: [
@@ -266,7 +245,6 @@ const GROUPS = [
   },
   {
     icon: Store,
-    gradient: "from-purple-500 to-purple-700 shadow-purple-500/20",
     title: "Service Vendors",
     subtitle: "Showcase portfolio & claim gigs.",
     perks: [
@@ -280,58 +258,53 @@ const GROUPS = [
 
 export function Ecosystem() {
   return (
-    <section className="py-24 bg-zinc-50 border-t border-zinc-100 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-[10%] left-[-5%] w-[350px] h-[350px] rounded-full bg-blue-100/20 blur-[100px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="py-20 bg-gray-50 border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-indigo-600 font-extrabold uppercase tracking-wider text-xs">
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <span className="text-blue-600 font-semibold uppercase tracking-wider text-xs">
             Who We Serve
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 mt-3 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">
             The Three Pillars of Tikkety
           </h2>
-          <p className="text-zinc-500 mt-4 text-base font-medium leading-relaxed">
+          <p className="text-gray-500 mt-3 text-base leading-relaxed">
             By connecting these three key segments, we create a circular event economy that builds trust and drives growth.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6">
           {GROUPS.map((group, idx) => {
             const Icon = group.icon;
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white border border-zinc-200/60 rounded-[2rem] p-8 shadow-xl shadow-zinc-100/50 hover:shadow-2xl hover:border-indigo-200/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 transition-colors"
               >
-                <div>
-                  <div className={`inline-flex items-center justify-center p-3.5 rounded-2xl bg-gradient-to-br ${group.gradient} shadow-lg text-white mb-6`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-extrabold text-zinc-900 tracking-tight">
-                    {group.title}
-                  </h3>
-                  <p className="text-indigo-600 text-xs font-bold uppercase mt-1 tracking-wider">
-                    {group.subtitle}
-                  </p>
-                  
-                  {/* Perks list */}
-                  <ul className="mt-6 space-y-3">
-                    {group.perks.map((perk, pIdx) => (
-                      <li key={pIdx} className="flex gap-3 text-sm text-zinc-600 font-medium">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                        <span>{perk}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-blue-600 text-white mb-4">
+                  <Icon className="w-5 h-5" />
                 </div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {group.title}
+                </h3>
+                <p className="text-xs font-medium text-blue-600 uppercase tracking-wider mt-0.5">
+                  {group.subtitle}
+                </p>
+                
+                {/* Perks list */}
+                <ul className="mt-4 space-y-2.5">
+                  {group.perks.map((perk, pIdx) => (
+                    <li key={pIdx} className="flex gap-2.5 text-sm text-gray-600">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>{perk}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             );
           })}
@@ -344,35 +317,30 @@ export function Ecosystem() {
 // ── CTA SECTION ──
 export function AboutCTA() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      {/* Background blobs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-indigo-50/70 blur-[130px] pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 tracking-tight leading-tight">
+    <section className="py-20 bg-white border-t border-gray-100">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
           Ready to Experience the{" "}
-          <span className="block sm:inline bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <span className="block sm:inline text-blue-700">
             Future of Events?
           </span>
         </h2>
-        <p className="text-zinc-500 mt-4 text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+        <p className="text-gray-500 mt-4 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
           Whether you want to launch your next big concert, attend a local showcase, 
           or offer your professional vendor services — Tikkety is built for you.
         </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             href="/waitlist"
-            className="group relative inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-4 text-white font-bold shadow-xl shadow-indigo-500/25 hover:shadow-indigo-500/35 hover:from-indigo-700 hover:to-blue-700 transition-all duration-200 overflow-hidden"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
           >
-            {/* Shimmer animation */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative z-10">Join the Waitlist</span>
-            <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+            <span>Join the Waitlist</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             href="/ambassadors"
-            className="inline-flex items-center gap-2 rounded-2xl border-2 border-zinc-200 bg-white px-8 py-4 font-bold text-zinc-800 hover:bg-zinc-50 hover:border-zinc-300 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-gray-200 bg-white text-gray-700 font-semibold rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-colors"
           >
             Become an Ambassador
           </Link>

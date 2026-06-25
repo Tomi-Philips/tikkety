@@ -7,27 +7,17 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#fcfcfc] via-[#fefefe] to-[#ffffff] pt-12">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-r from-blue-100/40 to-indigo-100/30 blur-[140px] animate-pulse" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-l from-blue-100/30 to-violet-100/20 blur-[140px] animate-pulse delay-1000" />
-        <div className="absolute top-[30%] right-[20%] w-[30%] h-[30%] rounded-full bg-cyan-100/20 blur-[100px] animate-pulse delay-2000" />
-        
-        {/* Subtle grid pattern */}
-        <div className={`absolute inset-0 bg-[url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.02)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")] opacity-50`} />
-      </div>
-
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-16 md:py-20 lg:py-24 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left Column: Copy, Audience Grid & Actions */}
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
           
-          {/* Early Stage Badge - Enhanced */}
+          {/* Early Stage Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 self-start rounded-full border border-indigo-200/60 bg-gradient-to-r from-indigo-50/80 to-blue-50/80 backdrop-blur-sm px-3 py-2 text-sm font-semibold text-indigo-700 mb-6 shadow-lg shadow-zinc-300 "
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 self-start rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 mb-6"
           >
             <div className="bg-blue-200 rounded-full p-1">
               <Zap className="w-3 h-3 text-blue-500 animate-pulse" />
@@ -38,112 +28,111 @@ export default function HeroSection() {
             <ArrowRight className="w-3 h-3 text-zinc-400" />
           </motion.div>
 
-          {/* Heading - Enhanced */}
+          {/* Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.08]"
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.08]"
           >
-            <span className="text-zinc-900">Create Events.</span>
+            <span className="text-gray-900">Create Events.</span>
             <br />
-            <span className="text-zinc-900">Sell Tickets.</span>
+            <span className="text-gray-900">Sell Tickets.</span>
             <br />
             <span className="text-blue-700">
               Manage Seamlessly.
             </span>
           </motion.h1>
 
-          {/* Subtitle - Enhanced */}
+          {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-base md:text-lg text-zinc-600 font-medium leading-relaxed max-w-2xl"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-5 text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl"
           >
             Tikkety is the modern event platform designed to simplify event creation and ticketing for organizers, 
             discovery for attendees, and portfolio visibility for local service providers.
           </motion.p>
 
-          {/* Target Audience Grid - Enhanced */}
+          {/* Target Audience Grid */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 border-y border-zinc-200/60 py-6"
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-4 border-y border-gray-200 py-5"
           >
-            <div className="group">
-              <h4 className="font-bold text-zinc-800 text-sm flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 group-hover:scale-110 transition-transform" />
+            <div>
+              <h4 className="font-semibold text-gray-800 text-sm flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500" />
                 For Organizers
               </h4>
-              <p className="text-zinc-500 text-xs mt-1.5 leading-relaxed font-medium">
+              <p className="text-gray-500 text-xs mt-1 leading-relaxed">
                 Create events easily, customize pricing tiers, and monitor live sales.
               </p>
             </div>
-            <div className="group">
-              <h4 className="font-bold text-zinc-800 text-sm flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 group-hover:scale-110 transition-transform" />
+            <div>
+              <h4 className="font-semibold text-gray-800 text-sm flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500" />
                 For Attendees
               </h4>
-              <p className="text-zinc-500 text-xs mt-1.5 leading-relaxed font-medium">
+              <p className="text-gray-500 text-xs mt-1 leading-relaxed">
                 Discover happenings, buy secure passes, and enjoy fast gate entry.
               </p>
             </div>
-            <div className="group">
-              <h4 className="font-bold text-zinc-800 text-sm flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 group-hover:scale-110 transition-transform" />
+            <div>
+              <h4 className="font-semibold text-gray-800 text-sm flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500" />
                 For Vendors
               </h4>
-              <p className="text-zinc-500 text-xs mt-1.5 leading-relaxed font-medium">
+              <p className="text-gray-500 text-xs mt-1 leading-relaxed">
                 Create a professional profile, establish online presence, and share your profile link.
               </p>
             </div>
           </motion.div>
 
-          {/* Waitlist Calls to Action - Enhanced */}
+          {/* Waitlist Calls to Action - NO GRADIENTS */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 flex flex-wrap items-center gap-4 text-sm"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-7 flex flex-wrap items-center gap-4 text-sm"
           >
             <Link
               href="/waitlist"
-              className="group relative inline-flex items-center gap-2.5 bg-blue-600 px-6 py-3 text-white font-bold shadow-xl hover:shadow-blue-600/40 hover:bg-blue-700 transition-all duration-200 overflow-hidden"
+              className="inline-flex items-center gap-2 bg-blue-600 px-6 py-3 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              <Rocket className="w-4.5 h-4.5 relative z-10" />
-              <span className="relative z-10">Join Waitlist</span>
-              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+              <Rocket className="w-4 h-4" />
+              <span>Join Waitlist</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
 
             <Link
               href="/register"
-              className="inline-flex items-center gap-2 bg-transparent px-6 py-3 font-bold text-blue-600 hover:bg-blue-50 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 font-semibold text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors"
             >
               Become an Organizer
-              <ArrowRight className="w-4 h-4 text-blue-600" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
 
-          {/* Safe Social Proof - Enhanced */}
+          {/* Safe Social Proof */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-zinc-500"
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-gray-500"
           >
             <div className="flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
               <span>Early Access Open</span>
             </div>
-            <span className="text-zinc-300">•</span>
+            <span className="text-gray-300">•</span>
             <div className="flex items-center gap-1.5">
               <CheckCircle className="w-3 h-3 text-emerald-500" />
               <span>Founding Users Welcome</span>
             </div>
-            <span className="text-zinc-300">•</span>
+            <span className="text-gray-300">•</span>
             <div className="flex items-center gap-1.5">
               <Star className="w-3 h-3 text-amber-500" />
               <span>Built for Modern Event Creators</span>
@@ -151,7 +140,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right Column: Visual Preview Ticket Mockup - Enhanced */}
+        {/* Right Column: Visual Preview Ticket Mockup */}
         <div className="lg:col-span-5 flex items-center justify-center relative">
           {/* Decorative glowing elements */}
           <div className="absolute w-96 h-96 rounded-full bg-gradient-to-tr from-indigo-400 to-blue-500 opacity-20 blur-3xl animate-pulse" />

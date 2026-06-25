@@ -67,42 +67,23 @@ export default function ProblemSection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         
-        {/* Section Header - Enhanced */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 text-blue-700 font-bold uppercase tracking-wider text-[11px] mb-5"
-          >
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-medium tracking-wider uppercase mb-4">
             <AlertTriangle className="w-3.5 h-3.5" />
             The Problem
-          </motion.div>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900 leading-[1.1]"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 leading-[1.15] mb-3">
             Running Events Today Is Still
-            <span className="block text-blue-700">
+            <span className="block text-blue-700 mt-1">
               Too Fragmented
             </span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-zinc-500 text-base md:text-lg font-medium mt-5 max-w-2xl mx-auto leading-relaxed"
-          >
+          <p className="text-gray-500 text-base leading-relaxed max-w-xl mx-auto">
             From ticket sales to attendee tracking, most organizers still juggle disconnected tools 
-            that slow down execution and blueuce profitability.
-          </motion.p>
+            that slow down execution and reduce profitability.
+          </p>
         </div>
 
         {/* Problems Grid - Enhanced with 3-2 layout */}
@@ -114,45 +95,39 @@ export default function ProblemSection() {
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`group relative bg-white/80 backdrop-blur-sm border border-zinc-200/60 rounded-3xl p-8 hover:shadow-2xl hover:shadow-blue-500/5 hover:border-blue-200/50 transition-all duration-300 flex flex-col justify-between ${
+                transition={{ duration: 0.4, delay: idx * 0.06 }}
+                className={`group relative bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 transition-colors flex flex-col ${
                   isLastTwo ? 'md:col-span-1.5' : ''
                 }`}
               >
-                {/* Gradient hover overlay */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-50/0 to-indigo-50/0 group-hover:from-blue-50/30 group-hover:to-indigo-50/30 transition-all duration-500 pointer-events-none" />
-                
-                {/* Icon Container - Enhanced */}
-                <div className="relative">
-                  
-                  {/* Tag badge */}
-                  <span className="absolute -top-1 -right-1 px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[9px] font-bold text-zinc-500 border border-zinc-200/50">
+                {/* Icon and Tag */}
+                <div className="flex items-start justify-between">
+                  <div className="p-2.5 bg-blue-50 rounded-lg">
+                    <Icon className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-gray-100 text-[9px] font-semibold text-gray-500 border border-gray-200">
                     {prob.tag}
                   </span>
                 </div>
 
-                <div className="mt-5 flex-1">
-                  <h3 className="text-xl font-bold text-zinc-900 tracking-tight group-hover:text-blue-700 transition-colors duration-300">
+                <div className="mt-4 flex-1">
+                  <h3 className="text-base font-semibold text-gray-900">
                     {prob.title}
                   </h3>
 
-                  <p className="text-zinc-500 text-sm font-medium mt-3 leading-relaxed">
+                  <p className="text-sm text-gray-500 mt-2 leading-relaxed">
                     {prob.description}
                   </p>
                 </div>
 
-                {/* Footer with problem number and icon */}
-                <div className="mt-6 pt-4 border-t border-zinc-100/80 flex items-center justify-between">
-                  <span className="text-xs font-bold text-zinc-400 group-hover:text-blue-500 transition-colors">
-                    0{idx + 1} · PROBLEM
+                {/* Footer */}
+                <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-[10px] font-medium text-gray-400">
+                    0{idx + 1}
                   </span>
-                  <div className="flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-blue-500 transition-colors">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity">Learn more</span>
-                    <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                  </div>
                 </div>
               </motion.div>
             );
@@ -160,22 +135,16 @@ export default function ProblemSection() {
         </div>
 
         {/* Bottom CTA - Enhanced */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-zinc-900 to-zinc-800 text-white shadow-xl shadow-zinc-900/20">
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-gray-900 text-white rounded-full border border-gray-800 shadow-sm">
             <Zap className="w-4 h-4 text-blue-400" />
-            <span className="text-sm font-medium">Tiblue of these problems?</span>
-            <span className="w-px h-5 bg-white/20" />
-            <span className="text-sm font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="text-sm font-medium">Tired of these problems?</span>
+            <span className="w-px h-4 bg-gray-700" />
+            <span className="text-sm font-semibold text-blue-400">
               Tikkety fixes them all
             </span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
