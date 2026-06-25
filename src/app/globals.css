@@ -22,7 +22,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-dm-sans);
+  font-family: var(--font-ibm-plex-sans);
 }
 
 /* Global Shimmer Animation for Ticket Sales Progress Bars */
@@ -48,12 +48,12 @@ body {
 .striped-banner {
   background-image: repeating-linear-gradient(
     -45deg,
-    #1e1b4b 0px,       /* indigo-950 */
-    #1e1b4b 14px,
-    #312e81 14px,       /* indigo-900 */
-    #312e81 28px
+    #ffffff 0px,       /* white */
+    #ffffff 14px,
+    #f1f5f9 14px,      /* slate-100 */
+    #f1f5f9 28px
   );
-  background-size: 39.6px 39.6px; /* 28px * sqrt(2) approx */
+  background-size: 39.6px 39.6px;
   animation: slide-stripes 15s linear infinite;
 }
 

@@ -11,7 +11,6 @@ const STATS = [
     sub: "+12.3% growth",
     icon: TrendingUp,
     trend: "up",
-    color: "from-emerald-500 to-teal-500",
   },
   {
     title: "Tickets Sold",
@@ -19,7 +18,6 @@ const STATS = [
     sub: "Live capacity tracking",
     icon: BarChart3,
     trend: "up",
-    color: "from-blue-500 to-indigo-500",
   },
   {
     title: "Conversion Rate",
@@ -27,7 +25,6 @@ const STATS = [
     sub: "From event page views",
     icon: Percent,
     trend: "up",
-    color: "from-purple-500 to-pink-500",
   },
 ];
 
@@ -43,146 +40,120 @@ const CHART_DATA = [
 
 export default function AnalyticsPreviewSection() {
   return (
-    <section className="relative py-28 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white overflow-hidden">
+    <section className="py-20 bg-gray-950 border-t border-gray-800">
+      <div className="w-full max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[10%] right-[5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-blue-600/10 to-indigo-600/10 blur-[140px] animate-pulse" />
-        <div className="absolute bottom-[10%] left-[5%] w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-purple-600/10 to-pink-600/10 blur-[140px] animate-pulse delay-1000" />
-        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-indigo-600/5 blur-[150px]" />
-        
-        {/* Subtle grid pattern */}
-        <div className={`absolute inset-0 bg-[url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(255,255,255,0.02)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")] opacity-50`} />
-      </div>
-
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-        {/* LEFT: Dashboard Visualization - Enhanced with Real Screenshot */}
-        <div className="lg:col-span-7">
+        {/* LEFT: Dashboard Visualization */}
+        <div className="lg:col-span-7 rounded-md">
           <motion.div
-            initial={{ opacity: 0, y: 30, rotate: -1 }}
-            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
-            whileHover={{ y: -4 }}
-            className="bg-gradient-to-br from-zinc-900/90 to-zinc-950/90 backdrop-blur-sm border border-zinc-800/60 rounded-3xl p-3 shadow-2xl shadow-black/50 relative overflow-hidden group"
+            transition={{ duration: 0.4 }}
+            className="bg-white border border-zinc-200 overflow-hidden shadow-lg rounded-md"
           >
-            {/* Decorative gradient glow */}
-            <div className="absolute -top-[30%] -right-[30%] w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-[30%] -left-[30%] w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
-
-            {/* Inner border wrapper for image */}
-            <div className="relative z-10 rounded-2xl overflow-hidden border border-zinc-800/80 bg-zinc-950/40">
+            {/* Image Container with proper structure */}
+            <div className="relative w-full">
               <Image
                 src="/Analytics Screenshot.png"
-                alt="Tikkety Analytics Dashboard"
+                alt="Tikkety Analytics Dashboard - Overview"
                 width={1200}
-                height={800}
-                className="w-full h-auto object-cover transform group-hover:scale-[1.01] transition-transform duration-500"
+                height={600}
+                className="w-full h-auto object-cover"
                 priority
               />
+            </div>
+            
+            {/* Divider between images */}
+            <div className="border-t-6 border-zinc-300 hidden lg:block" />
+            
+            {/* Second Image Container */}
+            <div className="relative w-full hidden lg:block">
+              <Image
+                src="/Analytics Screenshot-2.png"
+                alt="Tikkety Analytics Dashboard - Detailed View"
+                width={1200}
+                height={600}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
+            
+            {/* Optional: Image caption/footer */}
+            <div className="bg-zinc-50 border-t border-zinc-200 px-6 py-3 flex items-center justify-between">
+              <span className="text-[10px] text-zinc-400">Analytics Dashboard • Real-time metrics</span>
+              <span className="text-[10px] font-semibold text-blue-600">Updated live</span>
             </div>
           </motion.div>
         </div>
 
-        {/* RIGHT: Copy - Enhanced */}
+        {/* RIGHT: Copy */}
         <div className="lg:col-span-5">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600/20 to-indigo-600/20 border border-blue-500/20 text-blue-400 font-bold uppercase tracking-wider text-[11px] mb-5"
-          >
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-800 border border-gray-700 text-gray-400 text-xs font-medium tracking-wider uppercase mb-5">
             <Zap className="w-3.5 h-3.5" />
-            MVP Analytics Engine
-          </motion.div>
+            Analytics Engine
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1]"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-[1.15] mb-3">
             Know Exactly What Is
-            <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block text-gray-300 mt-1">
               Happening In Your Event
             </span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-zinc-400 text-base md:text-lg font-medium mt-4 leading-relaxed"
-          >
+          <p className="text-gray-400 text-base leading-relaxed max-w-md">
             Tikkety's analytics system is built directly into the ticketing engine.
             No delays, no external dashboards — just live performance data tied to real transactions.
-          </motion.p>
+          </p>
 
-          {/* Feature List - Enhanced */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-8 space-y-5"
-          >
-            <div className="group flex gap-4 p-3 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-500/20 group-hover:from-blue-600/30 group-hover:to-blue-500/30 transition-all shrink-0">
-                <LineChart className="w-5 h-5 text-blue-400" />
+          {/* Feature List - Clean */}
+          <div className="mt-6 space-y-3">
+            <div className="flex gap-3 p-3 border border-gray-800 rounded-lg hover:border-gray-700 transition-colors">
+              <div className="p-2 bg-gray-800 rounded-lg shrink-0">
+                <LineChart className="w-4 h-4 text-gray-400" />
               </div>
               <div>
-                <p className="font-bold text-zinc-200 group-hover:text-blue-400 transition-colors">Live Ticket Velocity</p>
-                <p className="text-sm text-zinc-400 mt-0.5 leading-relaxed">
+                <p className="text-sm font-medium text-white">Live Ticket Velocity</p>
+                <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
                   See exactly when users buy tickets and adjust pricing strategy dynamically.
                 </p>
               </div>
             </div>
 
-            <div className="group flex gap-4 p-3 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-600/20 to-indigo-500/20 group-hover:from-indigo-600/30 group-hover:to-indigo-500/30 transition-all shrink-0">
-                <Users className="w-5 h-5 text-indigo-400" />
+            <div className="flex gap-3 p-3 border border-gray-800 rounded-lg hover:border-gray-700 transition-colors">
+              <div className="p-2 bg-gray-800 rounded-lg shrink-0">
+                <Users className="w-4 h-4 text-gray-400" />
               </div>
               <div>
-                <p className="font-bold text-zinc-200 group-hover:text-indigo-400 transition-colors">Attendee Intelligence</p>
-                <p className="text-sm text-zinc-400 mt-0.5 leading-relaxed">
+                <p className="text-sm font-medium text-white">Attendee Intelligence</p>
+                <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
                   Understand buyer behavior, geography, and conversion paths per event.
                 </p>
               </div>
             </div>
 
-            <div className="group flex gap-4 p-3 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-600/20 to-purple-500/20 group-hover:from-purple-600/30 group-hover:to-purple-500/30 transition-all shrink-0">
-                <Eye className="w-5 h-5 text-purple-400" />
+            <div className="flex gap-3 p-3 border border-gray-800 rounded-lg hover:border-gray-700 transition-colors">
+              <div className="p-2 bg-gray-800 rounded-lg shrink-0">
+                <Eye className="w-4 h-4 text-gray-400" />
               </div>
               <div>
-                <p className="font-bold text-zinc-200 group-hover:text-purple-400 transition-colors">Real-Time Visibility</p>
-                <p className="text-sm text-zinc-400 mt-0.5 leading-relaxed">
+                <p className="text-sm font-medium text-white">Real-Time Visibility</p>
+                <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
                   Monitor attendance, sales velocity, and revenue trends as they happen.
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* MVP emphasis footer - Enhanced */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-8 pt-4 border-t border-zinc-800/60"
-          >
-            <div className="flex items-center gap-3 text-xs text-zinc-500">
-              <div className="flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-amber-400" />
-                <span className="font-medium text-zinc-400">Built as part of the core MVP:</span>
-              </div>
-              <span className="text-zinc-600">Ticketing → Payment → Analytics</span>
+          {/* MVP emphasis footer */}
+          <div className="mt-6 pt-4 border-t border-gray-800">
+            <div className="flex items-center gap-2 text-xs text-gray-500">
+              <Zap className="w-3.5 h-3.5 text-gray-600" />
+              <span className="text-gray-400">Built into core MVP:</span>
+              <span className="text-gray-600">Ticketing → Payment → Analytics</span>
             </div>
-          </motion.div>
+          </div>
         </div>
 
       </div>

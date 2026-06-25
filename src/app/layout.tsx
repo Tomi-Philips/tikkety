@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { AuthProvider } from "@/providers/auth-provider";
 
-const dmSans = DM_Sans({
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex-sans",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={dmSans.className} suppressHydrationWarning>
+      <body className={ibmPlexSans.className} suppressHydrationWarning>
         <AuthProvider>{children}</AuthProvider>
         <Toaster position="top-right" richColors />
       </body>

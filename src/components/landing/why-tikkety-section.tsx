@@ -97,7 +97,7 @@ export default function WhyTikketySection() {
             className="text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900 leading-[1.1]"
           >
             Introducing
-            <span className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block text-blue-700">
               Tikkety Ecosystem
             </span>
           </motion.h2>
@@ -133,22 +133,19 @@ export default function WhyTikketySection() {
                 
                 {/* Icon Container - Enhanced with gradient */}
                 <div className="relative">
-                  <div className={`inline-flex items-center justify-center p-3.5 rounded-2xl bg-gradient-to-br ${val.gradient} shadow-lg shadow-indigo-500/20`}>
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
                   
                   {/* Tag badge */}
                   <span className={`absolute -top-1 -right-1 px-2.5 py-0.5 rounded-full text-[9px] font-bold border bg-white/90 shadow-sm ${
                     val.tag === "Coming Soon" 
                       ? "text-amber-600 border-amber-200" 
-                      : "text-indigo-600 border-indigo-200"
+                      : "text-blue-600 border-blue-200"
                   }`}>
                     {val.tag}
                   </span>
                 </div>
 
                 <div className="mt-5">
-                  <h3 className="text-lg font-bold text-zinc-900 tracking-tight group-hover:text-indigo-700 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-zinc-900 tracking-tight group-hover:text-blue-700 transition-colors duration-300">
                     {val.title}
                   </h3>
 
@@ -156,43 +153,11 @@ export default function WhyTikketySection() {
                     {val.description}
                   </p>
                 </div>
-
-                {/* Bottom indicator */}
-                <div className="mt-5 pt-4 border-t border-zinc-100/80 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-xs font-medium text-zinc-400">
-                    <CheckCircle className="w-3 h-3 text-emerald-500" />
-                    <span>Included</span>
-                  </div>
-                  <div className="flex items-center gap-1 text-xs font-medium text-indigo-400 opacity-0 group-hover:opacity-100 transition-all">
-                    <span>Learn more</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Bottom Trust Badge - Enhanced */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-gradient-to-r from-zinc-900 to-zinc-800 text-white shadow-2xl shadow-zinc-900/20">
-            <div className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-amber-400" />
-              <span className="text-sm font-medium">Built for the future of events</span>
-            </div>
-            <span className="w-px h-6 bg-white/10" />
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-emerald-400" />
-              <span className="text-sm font-medium">Secure & Scalable</span>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

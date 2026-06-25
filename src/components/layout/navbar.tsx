@@ -75,8 +75,8 @@ export default function Navbar() {
       <div
         className={`pointer-events-auto w-full max-w-6xl transition-all duration-300 ${
           scrolled
-            ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-slate-900/10 border border-slate-200/50"
-            : "bg-white/45 backdrop-blur-md shadow-md shadow-slate-900/5 border border-white/40"
+            ? "bg-white/45 backdrop-blur-xl shadow-lg shadow-slate-900/10 border border-slate-200/50"
+            : "bg-white backdrop-blur-md shadow-md shadow-slate-900/5 border border-white/40"
         } rounded-full px-3 py-3 flex items-center justify-between gap-4`}
       >
         {/* Logo */}

@@ -17,19 +17,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-slate-950 border-t border-zinc-900 pt-16 pb-8 overflow-hidden">
-      
-      {/* Background Glows */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-        <div className="absolute top-[-20%] left-[10%] w-[300px] h-[300px] rounded-full bg-blue-900/10 blur-[100px]" />
-        <div className="absolute bottom-[-10%] right-[10%] w-[300px] h-[300px] rounded-full bg-indigo-900/10 blur-[100px]" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+    <footer className="bg-gray-900 border-t border-gray-800 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
 
         {/* Brand */}
         <div className="lg:col-span-4">
-          <Link href="/" className="inline-flex items-center hover:opacity-85 transition-opacity">
+          <Link href="/" className="inline-flex items-center hover:opacity-80 transition-opacity">
             <Image
               src="/tikkety-main-logo-dark.png"
               alt="Tikkety"
@@ -40,13 +33,13 @@ export default function Footer() {
             />
           </Link>
 
-          <p className="mt-4 text-sm text-zinc-400 font-medium leading-relaxed max-w-sm">
+          <p className="mt-4 text-sm text-gray-400 leading-relaxed max-w-sm">
             A modern event platform for creating events, selling tickets, and managing QR check-ins — all in one place.
           </p>
 
-          <div className="mt-6 flex items-center gap-2 text-xs text-zinc-400 font-semibold">
+          <div className="mt-6 flex items-center gap-2 text-xs text-gray-500 font-medium">
             <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="absolute h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
               <span className="relative h-2 w-2 rounded-full bg-emerald-500"></span>
             </span>
             MVP System Active
@@ -55,10 +48,10 @@ export default function Footer() {
 
         {/* Platform */}
         <div className="lg:col-span-2">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-white">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-gray-300">
             Platform
           </h4>
-          <ul className="mt-4 space-y-2 text-sm font-medium text-zinc-400">
+          <ul className="mt-4 space-y-2 text-sm font-medium text-gray-400">
             <li><Link href="/events" className="hover:text-blue-400 transition-colors">Explore Events</Link></li>
             <li><Link href="/create" className="hover:text-blue-400 transition-colors">Create Event</Link></li>
             <li><Link href="/tickets" className="hover:text-blue-400 transition-colors">Ticketing</Link></li>
@@ -67,10 +60,10 @@ export default function Footer() {
 
         {/* Resources */}
         <div className="lg:col-span-2">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-white">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-gray-300">
             Resources
           </h4>
-          <ul className="mt-4 space-y-2 text-sm font-medium text-zinc-400">
+          <ul className="mt-4 space-y-2 text-sm font-medium text-gray-400">
             <li><Link href="/support" className="hover:text-blue-400 transition-colors">Support</Link></li>
             <li><Link href="/docs" className="hover:text-blue-400 transition-colors">Docs</Link></li>
             <li><Link href="/status" className="hover:text-blue-400 transition-colors">System Status</Link></li>
@@ -79,10 +72,10 @@ export default function Footer() {
 
         {/* Legal */}
         <div className="lg:col-span-2">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-white">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-gray-300">
             Legal
           </h4>
-          <ul className="mt-4 space-y-2 text-sm font-medium text-zinc-400">
+          <ul className="mt-4 space-y-2 text-sm font-medium text-gray-400">
             <li><Link href="/terms" className="hover:text-blue-400 transition-colors">Terms</Link></li>
             <li><Link href="/privacy" className="hover:text-blue-400 transition-colors">Privacy</Link></li>
           </ul>
@@ -90,48 +83,48 @@ export default function Footer() {
 
         {/* Newsletter */}
         <div className="lg:col-span-2">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-white">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-gray-300">
             Updates
           </h4>
 
-          <p className="mt-4 text-sm text-zinc-400">
+          <p className="mt-4 text-sm text-gray-400">
             Get early access updates on the Tikkety MVP launch.
           </p>
 
           {!subscribed ? (
             <form
               onSubmit={handleSubscribe}
-              className="mt-3 flex bg-white/5 border border-white/10 p-1.5 rounded-xl focus-within:border-blue-500/50 transition-all duration-200"
+              className="mt-3 flex bg-gray-800 border border-gray-700 rounded-lg overflow-hidden focus-within:border-blue-500 transition-colors"
             >
               <input
                 type="email"
                 value={newsEmail}
                 onChange={(e) => setNewsEmail(e.target.value)}
                 placeholder="Email address"
-                className="w-full bg-transparent text-sm text-white focus:outline-none pl-2.5 placeholder:text-zinc-500"
+                className="flex-1 bg-transparent text-sm text-white focus:outline-none px-3 py-2 placeholder:text-gray-500"
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-blue-600 to-sky-600 text-white p-2 rounded-lg hover:from-blue-700 hover:to-sky-700 shadow-md shadow-blue-500/20 active:scale-95 transition-all duration-200"
+                className="bg-blue-600 text-white px-3 py-2 hover:bg-blue-700 transition-colors"
               >
-                <Send className="w-3.5 h-3.5" />
+                <Send className="w-4 h-4" />
               </button>
             </form>
           ) : (
-            <span className="inline-block mt-3 text-xs text-emerald-400 font-bold bg-emerald-950/30 border border-emerald-900/50 rounded-lg px-2.5 py-1">
-              You&apos;re on the list
+            <span className="inline-block mt-3 text-xs text-emerald-400 font-medium bg-emerald-950/50 border border-emerald-800/50 rounded-lg px-3 py-1">
+              You're on the list
             </span>
           )}
         </div>
       </div>
 
       {/* Bottom */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 border-t border-zinc-900 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <span className="text-xs text-zinc-400 font-semibold">
+      <div className="max-w-7xl mx-auto px-6 border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span className="text-xs text-gray-500 font-medium">
           © {new Date().getFullYear()} Tikkety. All rights reserved.
         </span>
 
-        <div className="flex items-center gap-1.5 text-xs text-zinc-400 font-semibold">
+        <div className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
           <Globe className="w-3.5 h-3.5" />
           <span>English (US)</span>
         </div>

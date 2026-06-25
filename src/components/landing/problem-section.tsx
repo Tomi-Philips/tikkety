@@ -88,7 +88,7 @@ export default function ProblemSection() {
             className="text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900 leading-[1.1]"
           >
             Running Events Today Is Still
-            <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="block text-blue-700">
               Too Fragmented
             </span>
           </motion.h2>
@@ -127,9 +127,6 @@ export default function ProblemSection() {
                 
                 {/* Icon Container - Enhanced */}
                 <div className="relative">
-                  <div className={`inline-flex items-center justify-center p-4 rounded-2xl bg-gradient-to-br ${prob.badgeColor} shadow-lg`}>
-                    <Icon className={`w-6 h-6 text-white`} />
-                  </div>
                   
                   {/* Tag badge */}
                   <span className="absolute -top-1 -right-1 px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[9px] font-bold text-zinc-500 border border-zinc-200/50">
@@ -171,10 +168,10 @@ export default function ProblemSection() {
           className="mt-16 text-center"
         >
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-zinc-900 to-zinc-800 text-white shadow-xl shadow-zinc-900/20">
-            <Zap className="w-4 h-4 text-amber-400" />
+            <Zap className="w-4 h-4 text-blue-400" />
             <span className="text-sm font-medium">Tiblue of these problems?</span>
             <span className="w-px h-5 bg-white/20" />
-            <span className="text-sm font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+            <span className="text-sm font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
               Tikkety fixes them all
             </span>
           </div>

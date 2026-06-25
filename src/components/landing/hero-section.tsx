@@ -6,15 +6,15 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-100 via-white to-indigo-50 pt-12">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#fcfcfc] via-[#fefefe] to-[#ffffff] pt-12">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-r from-blue-200/40 to-indigo-200/30 blur-[140px] animate-pulse" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-l from-blue-200/30 to-violet-200/30 blur-[140px] animate-pulse delay-1000" />
-        <div className="absolute top-[30%] right-[20%] w-[30%] h-[30%] rounded-full bg-cyan-200/20 blur-[100px] animate-pulse delay-2000" />
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-r from-blue-100/40 to-indigo-100/30 blur-[140px] animate-pulse" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-l from-blue-100/30 to-violet-100/20 blur-[140px] animate-pulse delay-1000" />
+        <div className="absolute top-[30%] right-[20%] w-[30%] h-[30%] rounded-full bg-cyan-100/20 blur-[100px] animate-pulse delay-2000" />
         
         {/* Subtle grid pattern */}
-        <div className={`absolute inset-0 bg-[url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.03)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")] opacity-50`} />
+        <div className={`absolute inset-0 bg-[url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.02)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")] opacity-50`} />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-16 md:py-20 lg:py-24 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -27,12 +27,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 self-start rounded-full border border-indigo-200/60 bg-gradient-to-r from-indigo-50/80 to-blue-50/80 backdrop-blur-sm px-5 py-2 text-sm font-semibold text-indigo-700 mb-6 shadow-sm shadow-indigo-100/50"
+            className="inline-flex items-center gap-2 self-start rounded-full border border-indigo-200/60 bg-gradient-to-r from-indigo-50/80 to-blue-50/80 backdrop-blur-sm px-3 py-2 text-sm font-semibold text-indigo-700 mb-6 shadow-lg shadow-zinc-300 "
           >
-            <Zap className="w-4 h-4 text-indigo-500 animate-pulse" />
-            <span>Tikkety &bull; Launching Soon 🚀</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-300" />
-            <span className="text-xs font-medium text-indigo-500">Early Access Open</span>
+            <div className="bg-blue-200 rounded-full p-1">
+              <Zap className="w-3 h-3 text-blue-500 animate-pulse" />
+            </div>
+            <span className="text-zinc-700">Tikkety &bull; Launching Soon 🚀</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-300" />
+            <span className="text-xs font-medium text-zinc-700">Early Access Open</span>
+            <ArrowRight className="w-3 h-3 text-zinc-400" />
           </motion.div>
 
           {/* Heading - Enhanced */}
@@ -46,7 +49,7 @@ export default function HeroSection() {
             <br />
             <span className="text-zinc-900">Sell Tickets.</span>
             <br />
-            <span className="bg-gradient-to-r from-indigo-600 via-blue-600 to-violet-600 bg-clip-text text-transparent">
+            <span className="text-blue-700">
               Manage Seamlessly.
             </span>
           </motion.h1>
@@ -103,11 +106,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-4 text-sm"
           >
             <Link
               href="/waitlist"
-              className="group relative inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-4 text-white font-bold shadow-xl shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:from-indigo-700 hover:to-blue-700 transition-all duration-200 overflow-hidden"
+              className="group relative inline-flex items-center gap-2.5 bg-blue-600 px-6 py-3 text-white font-bold shadow-xl hover:shadow-blue-600/40 hover:bg-blue-700 transition-all duration-200 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               <Rocket className="w-4.5 h-4.5 relative z-10" />
@@ -117,10 +120,10 @@ export default function HeroSection() {
 
             <Link
               href="/register"
-              className="inline-flex items-center gap-2 rounded-2xl border-2 border-zinc-200/80 bg-white/80 backdrop-blur-sm px-8 py-4 font-bold text-zinc-700 hover:bg-zinc-50 hover:border-zinc-300 transition-all duration-200 shadow-sm hover:shadow-md"
+              className="inline-flex items-center gap-2 bg-transparent px-6 py-3 font-bold text-blue-600 hover:bg-blue-50 transition-all duration-200"
             >
-              <Sparkles className="w-4 h-4 text-indigo-500" />
               Become an Organizer
+              <ArrowRight className="w-4 h-4 text-blue-600" />
             </Link>
           </motion.div>
 
@@ -167,13 +170,13 @@ export default function HeroSection() {
             className="relative w-full max-w-[400px]"
           >
             {/* Glow behind ticket */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-blue-500/20 rounded-[36px] blur-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-zinc-500/20 to-slate-500/20 rounded-[36px] blur-2xl" />
             
             {/* Main Ticket Card */}
-            <div className="relative bg-gradient-to-br from-indigo-950 via-slate-900 to-blue-950 text-white rounded-[32px] p-7 shadow-2xl shadow-indigo-950/50 border border-white/10 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-indigo-950 via-slate-900 to-blue-950 text-white rounded-[32px] p-7 shadow-2xl shadow-zinc-950/50 border border-white/10 overflow-hidden">
               
               {/* Animated gradient border */}
-              <div className="absolute inset-0 rounded-[32px] p-[1px] bg-gradient-to-r from-indigo-500/30 via-blue-500/30 to-pink-500/30 opacity-50" />
+              <div className="absolute inset-0 rounded-[32px] p-[1px] bg-gradient-to-r from-zinc-500/30 via-blue-500/30 to-pink-500/30 opacity-50" />
               
               {/* Decorative pattern */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-indigo-500/10 to-blue-500/10 rounded-full blur-2xl" />
