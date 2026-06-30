@@ -76,7 +76,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             </div>
             
             {/* Testimonial quote */}
-            <blockquote className="text-2xl md:text-3xl font-bold leading-relaxed text-gray-900">
+            <blockquote className="text-2xl md:text-3xl font-semi leading-relaxed text-gray-700">
               "Tikkety completely changed how I manage campus events. I can create ticket tiers, track sales in real time, and manage attendees without juggling multiple tools."
             </blockquote>
             
