@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     if (!error) {
       // Fetch the profile to determine role-based routing (100% Database-Aware)
       const { data: { user } } = await supabase.auth.getUser();
-      let targetPath = "/dashboard/user";
+      let targetPath = "/dashboard/attendee";
       
       if (user) {
         const { data: profile } = await supabase

@@ -46,24 +46,24 @@ export default async function OrganizerDashboard() {
   const salePercentage = maxCapacity > 0 ? Math.round((totalTicketsSold / maxCapacity) * 100) : 0;
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <div className="space-y-6">
 
       {/* Header section with welcoming and action button */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-zinc-950 to-zinc-700 dark:from-white dark:to-zinc-300 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold text-gray-900">
             Organizer Studio
           </h2>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+          <p className="text-sm text-gray-500 mt-0.5">
             Analyze your ticket sales, manage your event portfolios, and create brand-new experiences.
           </p>
         </div>
 
         <Link
           href="/dashboard/organizer/create-event"
-          className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-violet-700 hover:to-indigo-700 text-white px-5 py-3 rounded-2xl font-bold shadow-lg shadow-violet-500/25 transition-all duration-200 hover:shadow-violet-500/35 hover:scale-[1.02]"
+          className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-semibold transition-colors"
         >
-          <Plus className="w-5 h-5" />
+          <Plus className="w-4 h-4" />
           <span>Create Event</span>
         </Link>
       </div>
@@ -81,11 +81,11 @@ export default async function OrganizerDashboard() {
       <AnalyticsBanner />
 
       {/* Main content grid (Events list vs Empty State) */}
-      <div className="space-y-6">
-        <div className="flex items-center justify-between border-b border-zinc-200/60 dark:border-zinc-800/60 pb-3">
-          <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-100">Your Active Events Portfolio</h3>
+      <div className="space-y-4">
+        <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+          <h3 className="text-base font-semibold text-gray-800">Your Active Events Portfolio</h3>
           {totalEvents > 0 && (
-            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-violet-100 dark:bg-violet-950/40 text-violet-600 dark:text-violet-400">
+            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200">
               {totalEvents} {totalEvents === 1 ? 'Event' : 'Events'}
             </span>
           )}
@@ -96,7 +96,7 @@ export default async function OrganizerDashboard() {
           <EmptyEvents />
         ) : (
           /* Premium Active Events Grid (Extracted Card Mapping) */
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {events?.map((event: any) => (
               <EventCard key={event.id} event={event} />
             ))}

@@ -427,7 +427,7 @@ export default async function EventPublicPage({
                             </div>
 
                             <Link
-                              href={`/events/${event.slug}/ticket/${tt.id}`}
+                              href={`/events/${event.slug}/checkout?ticketTypeId=${tt.id}`}
                               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 group"
                             >
                               <Ticket className="w-4 h-4" />

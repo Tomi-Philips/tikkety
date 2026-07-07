@@ -27,7 +27,7 @@ export default async function OrganizerLayout({
   if (error || !profile || profile.role !== "organizer") {
     // Deflect unauthorized role attempts
     const actualRole = profile?.role || "user";
-    redirect(actualRole === "admin" ? "/dashboard/admin" : "/dashboard/user");
+    redirect(actualRole === "admin" ? "/dashboard/admin" : "/dashboard/attendee");
   }
 
   return <>{children}</>;

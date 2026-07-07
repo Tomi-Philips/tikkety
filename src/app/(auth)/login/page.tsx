@@ -2,13 +2,15 @@
 
 import Link from 'next/link';
 import { Mail, Lock, ArrowRight, Eye, EyeOff, Loader2 } from 'lucide-react';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { createClient } from "@/lib/supabase/client";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function LoginPage() {
+// Inner component that uses useSearchParams — must live inside a Suspense boundary
+function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -54,6 +56,7 @@ export default function LoginPage() {
       }
 
       const role = profile.role;
+      const redirectTo = searchParams.get("redirectTo");
 
       if (role === "organizer") {
         router.push("/dashboard/organizer");
@@ -62,7 +65,7 @@ export default function LoginPage() {
         router.push("/dashboard/admin");
         await router.refresh();
       } else {
-        router.push("/dashboard/user");
+        router.push(redirectTo || "/dashboard/attendee");
         await router.refresh();
       }
 
@@ -187,5 +190,15 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Outer page wraps LoginForm in Suspense to satisfy Next.js App Router
+// requirement that useSearchParams() be inside a Suspense boundary.
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
   );
 }

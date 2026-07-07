@@ -1,6 +1,7 @@
 // event-card.tsx
 import Link from "next/link";
 import { Calendar, MapPin, Clock, Eye, TrendingUp, Users, Sparkles, ChevronRight, Ticket, DollarSign, Shield, Award, Pencil, UserCheck, QrCode } from "lucide-react";
+import EventCardActions from "./event-card-actions";
 
 type EventCardProps = {
   event: any;
@@ -180,7 +181,7 @@ export default function EventCard({ event }: EventCardProps) {
         )}
 
         {/* Bottom Action Footer */}
-        <div className="flex items-center justify-between pt-3 border-t border-zinc-100 dark:border-zinc-800">
+        <div className="flex items-center justify-between pt-3 border-t border-zinc-100 dark:border-zinc-800 gap-4 mt-auto">
           {/* Price */}
           <div className="flex flex-col">
             <div className="flex items-baseline gap-0.5">
@@ -201,77 +202,13 @@ export default function EventCard({ event }: EventCardProps) {
             )}
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-2">
-            {/* Preview Button */}
-            <Link
-              href={`/events/${event.slug}`}
-              className="group/preview flex items-center justify-center w-9 h-9 rounded-xl bg-blue-50 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-blue-600 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 shadow-sm hover:shadow-md"
-              title="Preview Event Page"
-            >
-              <Eye className="w-4 h-4 group-hover/preview:scale-110 transition-transform text-blue-600 dark:text-blue-400" />
-            </Link>
+          {/* Quick Actions Toggle Trigger */}
+          <div className="flex-1 max-w-[150px]">
+            <EventCardActions eventId={event.id} eventSlug={event.slug} />
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 sm:justify-end"> 
-          {/* Manage Button */}
-          <Link
-            href={`/dashboard/organizer/events/${event.id}`}
-            className="group/manage flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
-          >
-            <span>Manage</span>
-            <ChevronRight className="w-3.5 h-3.5 group-hover/manage:translate-x-0.5 transition-transform" />
-          </Link>
-
-          {/* Edit Button */}
-          <Link
-            href={`/dashboard/organizer/events/${event.id}/edit`}
-            className="group/edit flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
-          >
-            <Pencil className="w-3.5 h-3.5" />
-            <span>Edit</span>
-          </Link>
-
-          {/* Sales Button */}
-          <Link
-            href={`/dashboard/organizer/events/${event.id}/sales`}
-            className="group/sales flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
-          >
-            <DollarSign className="w-3.5 h-3.5 group-hover/sales:translate-y-[-1px] transition-transform" />
-            <span>Sales</span>
-          </Link>
-
-          {/* Attendees Button */}
-          <Link
-            href={`/dashboard/organizer/events/${event.id}/attendees`}
-            className="group/attendees flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-sky-600 hover:from-blue-600 hover:to-sky-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
-          >
-            <UserCheck className="w-3.5 h-3.5 group-hover/attendees:translate-y-[-1px] transition-transform" />
-            <span>Attendees</span>
-          </Link>
-
-          {/* Check-In Button */}
-          <Link
-            href={`/dashboard/organizer/events/${event.id}/check-in`}
-            className="group/checkin flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
-          >
-            <QrCode className="w-3.5 h-3.5 group-hover/checkin:scale-110 transition-transform" />
-            <span>Check-In</span>
-          </Link>
-
-          {/* Analytics Button */}
-          <Link
-            href={`/dashboard/organizer/events/${event.id}/analytics`}
-            className="group/analytics flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
-          >
-            <TrendingUp className="w-3.5 h-3.5 group-hover/analytics:translate-y-[-1px] transition-transform" />
-            <span>Analytics</span>
-          </Link>
-        </div>
       </div>
-
-      {/* Add shimmer animation keyframes to global CSS or add style tag */}
     </div>
   );
 }

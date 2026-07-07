@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
-export default async function AdminLayout({
+export default async function AttendeeLayout({
   children,
 }: {
   children: ReactNode;
@@ -17,17 +17,22 @@ export default async function AdminLayout({
     redirect("/login");
   }
 
-  // 🛡️ LAYER 2: DB-Aware Security Guard for the Admin Segment
+  // Security guard for the Attendee segment
   const { data: profile, error } = await supabase
     .from("profiles")
     .select("role")
     .eq("id", user.id)
     .single();
 
-  if (error || !profile || profile.role !== "admin") {
-    // Deflect unauthorized role attempts
+  if (error || !profile || profile.role !== "user") {
     const actualRole = profile?.role || "user";
-    redirect(actualRole === "organizer" ? "/dashboard/organizer" : "/dashboard/attendee");
+    redirect(
+      actualRole === "organizer"
+        ? "/dashboard/organizer"
+        : actualRole === "admin"
+        ? "/dashboard/admin"
+        : "/login"
+    );
   }
 
   return <>{children}</>;
